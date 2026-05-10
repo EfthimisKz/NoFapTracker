@@ -1,16 +1,1661 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>NoFapTracker</title>
-  <meta name="description" content="Offline NoFap streak tracker app.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Changelog — NoFapTracker</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
-  <h1>NoFapTracker</h1>
-  <p>Track your streaks and stay disciplined.</p>
 
-  <a href="https://github.com/EfthimisKz/NoFapTracker/releases/tag/v0.0.1">
-    Download
-  </a>
+  <!-- ── AMBIENT ORBS ── -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- ── CUSTOM CURSOR ── -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ── MOBILE HAMBURGER ── -->
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- ══════════════════════════════════════════
+       LEFT SIDEBAR
+  ══════════════════════════════════════════ -->
+  <aside id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">🔥</div>
+      <div>
+        <div class="sidebar-brand-name">NoFapTracker</div>
+        <div class="sidebar-brand-tag">Streak Manager</div>
+      </div>
+    </div>
+
+    <div class="clock-widget">
+      <div id="clock-time">
+        <span id="clock-hm">00:00</span><span id="clock-seconds">:00</span>
+      </div>
+      <div id="clock-day">Monday</div>
+      <div id="clock-date">01 / Jan / 2025</div>
+    </div>
+
+    <div class="cursor-toggle-wrap">
+      <div class="cursor-toggle-label">Custom Cursor</div>
+      <button id="cursor-toggle" class="active" aria-label="Toggle custom cursor">
+        <span>🖱 Custom Cursor</span>
+        <div class="toggle-pill"></div>
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-footer-made">Made by</div>
+      <div class="sidebar-footer-maker">EfthimisKz</div>
+      <div class="sidebar-footer-app">NoFapTracker</div>
+      <span class="sidebar-footer-version">v0.0.1</span>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════════
+       TOP NAVIGATION
+  ══════════════════════════════════════════ -->
+  <nav id="topnav">
+    <div class="nav-links">
+
+      <!-- Home — links back -->
+      <a href="index.html" class="nav-link">Home</a>
+
+      <!-- Changelog — ACTIVE on this page -->
+      <a href="changelog.html" class="nav-link active">Updates / Changelogs</a>
+
+      <div class="nav-divider"></div>
+
+      <!-- GitHub Dev -->
+      <a href="https://github.com/EfthimisKz"
+         target="_blank" rel="noopener"
+         class="nav-link github-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        GitHub Dev
+      </a>
+
+      <!-- Support Dev -->
+      <a href="https://paypal.me/EfthimisKzou?locale.x=en_US&country=GR"
+         target="_blank" rel="noopener"
+         class="nav-link donate-link">
+        ♥&nbsp; Support Dev
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       MAIN CONTENT — CHANGELOG PAGE
+  ══════════════════════════════════════════ -->
+  <main id="main">
+    <div id="page-changelog" class="page-content">
+
+      <!-- ── HEADER ── -->
+      <div class="changelog-header">
+        <div class="hero-badge" style="animation:none; margin-bottom:16px;">
+          <div class="hero-badge-dot"></div>
+          Release Notes
+        </div>
+        <h1>Updates &amp; Changelogs</h1>
+        <p>
+          All notable changes to <strong style="color:var(--text);">ThePlugNoFap</strong>
+          are documented here — full transparency, every release.
+        </p>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           TIMELINE
+      ══════════════════════════════════════ -->
+      <div class="timeline">
+
+        <!-- ─────────────────────────────────────
+             v0.0.1 — FIRST RELEASE
+        ───────────────────────────────────────── -->
+        <div class="timeline-entry">
+          <div class="version-card">
+
+            <!-- Card header -->
+            <div class="version-card-head">
+              <div>
+                <div class="version-meta">
+                  <span class="version-tag latest">Latest</span>
+                  <span class="version-tag">v0.0.1</span>
+                  <span class="version-tag alpha">Early Alpha</span>
+                </div>
+                <div class="version-title">ThePlugNoFap — First Release</div>
+                <div class="version-subtitle">
+                  A modern, offline desktop streak tracker built with Python&nbsp;3.14
+                </div>
+              </div>
+              <div class="version-date">2025 · Initial</div>
+            </div>
+
+            <!-- Card body -->
+            <div class="version-card-body">
+
+              <!-- Description -->
+              <div class="cl-desc">
+                This tool is designed to help you build discipline, improve focus, and stay
+                consistent with your personal goals. It encourages self-control and a better
+                daily routine through a clean, distraction-free experience.
+              </div>
+
+              <!-- ── FEATURES ── -->
+              <div>
+                <div class="cl-section-title">
+                  <span class="cl-section-icon">✦</span>
+                  Features
+                </div>
+                <ul class="cl-list">
+                  <li>
+                    <span class="cl-bullet feat">⏱</span>
+                    <span>
+                      <strong style="color:var(--text);">Smooth Circular Timer</strong>
+                      — High-quality visual animations for progress tracking, designed to
+                      keep you focused and aware of time.
+                    </span>
+                  </li>
+                  <li>
+                    <span class="cl-bullet feat">🔒</span>
+                    <span>
+                      <strong style="color:var(--text);">Offline-first Design</strong>
+                      — No login or internet connection required. Completely offline — 100% of the time.
+                    </span>
+                  </li>
+                  <li>
+                    <span class="cl-bullet feat">🌑</span>
+                    <span>
+                      <strong style="color:var(--text);">Minimal UI</strong>
+                      — Clean and lightweight design with zero visual clutter. Just the essentials.
+                    </span>
+                  </li>
+                  <li>
+                    <span class="cl-bullet feat">💾</span>
+                    <span>
+                      <strong style="color:var(--text);">Local Storage</strong>
+                      — All your data is saved securely on your own device. No cloud, no sync, no exposure.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- ── CURRENT STATE ── -->
+              <div>
+                <div class="cl-section-title">
+                  <span class="cl-section-icon">⚠</span>
+                  Current State — Early Alpha
+                </div>
+                <div class="state-banner">
+                  <div class="state-banner-icon">⚠️</div>
+                  <div class="state-banner-text">
+                    <strong>This is an early alpha build.</strong> Bugs may exist and some
+                    features are still under active development. User feedback is welcome —
+                    report issues directly via the GitHub repository.
+                    Some UI elements are still placeholders and will be refined in future releases.
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── ROADMAP ── -->
+              <div>
+                <div class="cl-section-title">
+                  <span class="cl-section-icon">🗺</span>
+                  Roadmap
+                </div>
+                <ul class="cl-list">
+                  <li>
+                    <span class="cl-bullet road">🏆</span>
+                    <span>
+                      <strong style="color:var(--text);">Ranks &amp; Achievements system</strong>
+                      — Milestone rewards and badges to celebrate your progress.
+                    </span>
+                  </li>
+                  <li>
+                    <span class="cl-bullet road">🎨</span>
+                    <span>
+                      <strong style="color:var(--text);">Custom UI improvements</strong>
+                      — Personalization options for themes, accent colors and iconography.
+                    </span>
+                  </li>
+                  <li>
+                    <span class="cl-bullet road">☁️</span>
+                    <span>
+                      <strong style="color:var(--text);">Possible cloud features</strong>
+                      — Optional sync in a future version — always opt-in, never forced.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- ── INSTALLATION ── -->
+              <div>
+                <div class="cl-section-title">
+                  <span class="cl-section-icon">⬇</span>
+                  Installation
+                </div>
+                <div class="install-steps">
+                  <div class="install-step">
+                    <div class="install-step-num">1</div>
+                    <span>
+                      Download <span class="file-pill">ThePlugNoFapSetup.exe</span>
+                      from the GitHub Releases page.
+                    </span>
+                  </div>
+                  <div class="install-step">
+                    <div class="install-step-num">2</div>
+                    <span>Run the installer — no admin rights required for standard install.</span>
+                  </div>
+                  <div class="install-step">
+                    <div class="install-step-num">3</div>
+                    <span>
+                      Launch the app and start your streak.
+                      That's it — no sign-up, no setup wizard.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── MADE BY ── -->
+              <div class="cl-made-by">
+                <span>Made with ❤️ by</span>
+                <strong>EfthimisKz</strong>
+                <span style="color:var(--text-dim);">/</span>
+                <a href="https://github.com/EfthimisKz" target="_blank" rel="noopener">ThePlug</a>
+              </div>
+
+            </div><!-- /version-card-body -->
+          </div><!-- /version-card -->
+        </div><!-- /timeline-entry -->
+
+        <!-- ─────────────────────────────────────
+             v0.1.0 — COMING SOON placeholder
+        ───────────────────────────────────────── -->
+        <div class="timeline-entry future">
+          <div class="version-card">
+            <div class="version-card-head">
+              <div>
+                <div class="version-meta">
+                  <span class="version-tag">v0.1.0</span>
+                </div>
+                <div class="version-title">Journal, Widgets &amp; Achievements</div>
+                <div class="version-subtitle">Next major update — in planning</div>
+              </div>
+              <div class="version-date">TBD</div>
+            </div>
+            <div class="version-card-body">
+              <ul class="cl-list">
+                <li>
+                  <span class="cl-bullet road">📓</span>
+                  <span>Built-in daily journal / mood log tied to streak entries.</span>
+                </li>
+                <li>
+                  <span class="cl-bullet road">🏆</span>
+                  <span>Ranks &amp; Achievements system with milestone badges.</span>
+                </li>
+                <li>
+                  <span class="cl-bullet road">🎨</span>
+                  <span>Custom icon packs and accent color themes.</span>
+                </li>
+                <li>
+                  <span class="cl-bullet road">📤</span>
+                  <span>Data export — JSON / CSV backup and restore support.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /timeline-entry future -->
+
+      </div><!-- /timeline -->
+    </div><!-- /page-content -->
+  </main>
+
+  <!-- Shared JS -->
+  <script src="script.js"></script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NoFapTracker — Offline Streak Tracker</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── AMBIENT ORBS ── -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- ── CUSTOM CURSOR ── -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ── MOBILE HAMBURGER ── -->
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- ══════════════════════════════════════════
+       LEFT SIDEBAR
+  ══════════════════════════════════════════ -->
+  <aside id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">🔥</div>
+      <div>
+        <div class="sidebar-brand-name">NoFapTracker</div>
+        <div class="sidebar-brand-tag">Streak Manager</div>
+      </div>
+    </div>
+
+    <div class="clock-widget">
+      <div id="clock-time">
+        <span id="clock-hm">00:00</span><span id="clock-seconds">:00</span>
+      </div>
+      <div id="clock-day">Monday</div>
+      <div id="clock-date">01 / Jan / 2025</div>
+    </div>
+
+    <div class="cursor-toggle-wrap">
+      <div class="cursor-toggle-label">Custom Cursor</div>
+      <button id="cursor-toggle" class="active" aria-label="Toggle custom cursor">
+        <span>🖱 Custom Cursor</span>
+        <div class="toggle-pill"></div>
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-footer-made">Made by</div>
+      <div class="sidebar-footer-maker">EfthimisKz</div>
+      <div class="sidebar-footer-app">NoFapTracker</div>
+      <span class="sidebar-footer-version">v0.0.1</span>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════════
+       TOP NAVIGATION
+  ══════════════════════════════════════════ -->
+  <nav id="topnav">
+    <div class="nav-links">
+
+      <!-- Home — ACTIVE on this page -->
+      <a href="index.html" class="nav-link active">Home</a>
+
+      <!-- Changelog — links to separate page -->
+      <a href="changelog.html" class="nav-link">Updates / Changelogs</a>
+
+      <div class="nav-divider"></div>
+
+      <!-- GitHub Dev -->
+      <a href="https://github.com/EfthimisKz"
+         target="_blank" rel="noopener"
+         class="nav-link github-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        GitHub Dev
+      </a>
+
+      <!-- Support Dev -->
+      <a href="https://paypal.me/EfthimisKzou?locale.x=en_US&country=GR"
+         target="_blank" rel="noopener"
+         class="nav-link donate-link">
+        ♥&nbsp; Support Dev
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       MAIN CONTENT — HOME PAGE
+  ══════════════════════════════════════════ -->
+  <main id="main">
+    <div id="page-home" class="page-content">
+
+      <!-- ── HERO ── -->
+      <div class="hero">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          Now Available · Free &amp; Offline
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-gradient">NoFap</span><br>Tracker
+        </h1>
+
+        <p class="hero-sub">
+          The cleanest offline streak tracker.<br>
+          Built for discipline. Designed for clarity.
+        </p>
+
+        <div class="hero-actions">
+          <!-- ✅ FIX: Direct link to changelog.html -->
+          <a href="changelog.html" class="btn-primary">
+            ⚡ View Changelogs
+          </a>
+          <a class="btn-secondary"
+             href="https://paypal.me/EfthimisKzou?locale.x=en_US&country=GR"
+             target="_blank" rel="noopener">
+            ♥ Support Dev
+          </a>
+        </div>
+      </div>
+
+      <!-- ── STATS BAR ── -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-num" id="stat-days">0</div>
+          <div class="stat-label">Days Tracked</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Offline</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0KB</div>
+          <div class="stat-label">Data Sent</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" id="stat-ver">v0.0.1</div>
+          <div class="stat-label">Latest Build</div>
+        </div>
+      </div>
+
+      <!-- ── FEATURES ── -->
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Built different.<br>Stripped to essentials.</h2>
+
+      <div class="features-grid">
+        <div class="feature-card" style="animation-delay:0.1s">
+          <span class="feature-icon">📡</span>
+          <div class="feature-title">Fully Offline</div>
+          <div class="feature-desc">Zero network requests. Your data stays on your device — always and forever. No cloud, no accounts.</div>
+        </div>
+        <div class="feature-card" style="animation-delay:0.2s">
+          <span class="feature-icon">🔥</span>
+          <div class="feature-title">Streak Tracking</div>
+          <div class="feature-desc">Track your current and best streaks with precision. Visual progress that keeps you motivated daily.</div>
+        </div>
+        <div class="feature-card" style="animation-delay:0.3s">
+          <span class="feature-icon">🌑</span>
+          <div class="feature-title">Dark &amp; Minimal UI</div>
+          <div class="feature-desc">Distraction-free interface. Clean, fast, and purpose-built with no unnecessary noise.</div>
+        </div>
+        <div class="feature-card" style="animation-delay:0.4s">
+          <span class="feature-icon">📊</span>
+          <div class="feature-title">Progress Insights</div>
+          <div class="feature-desc">Visualize your journey over time. See patterns, milestones, and celebrate every win.</div>
+        </div>
+        <div class="feature-card" style="animation-delay:0.5s">
+          <span class="feature-icon">🔒</span>
+          <div class="feature-title">Privacy First</div>
+          <div class="feature-desc">No account required. No analytics. No tracking of any kind. What you do stays with you.</div>
+        </div>
+        <div class="feature-card" style="animation-delay:0.6s">
+          <span class="feature-icon">⚡</span>
+          <div class="feature-title">Lightweight</div>
+          <div class="feature-desc">Instant launch, minimal resources. Runs anywhere without slowing anything down.</div>
+        </div>
+      </div>
+
+      <!-- ── APP MOCKUP ── -->
+      <div class="mockup-wrap">
+        <div class="mockup-glow"></div>
+        <div class="mockup-window">
+          <div class="mockup-topbar">
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-dot"></div>
+            <div class="mockup-title">NoFapTracker · Dashboard</div>
+          </div>
+          <div class="mockup-body">
+            <div class="app-streak">
+              <div class="app-streak-label">Current Streak</div>
+              <div class="app-streak-num" id="mockup-num">42</div>
+              <div class="app-streak-unit">days clean</div>
+            </div>
+            <div class="app-progress-row">
+              <div class="app-progress-bar"><div class="app-progress-fill" style="width:70%"></div></div>
+              <div class="app-progress-bar"><div class="app-progress-fill" style="width:100%; opacity:0.5;"></div></div>
+              <div class="app-progress-bar"><div class="app-progress-fill" style="width:30%; opacity:0.3;"></div></div>
+            </div>
+            <div class="app-mini-stats">
+              <div class="app-mini-stat">
+                <div class="app-mini-stat-val">90</div>
+                <div class="app-mini-stat-label">Best</div>
+              </div>
+              <div class="app-mini-stat">
+                <div class="app-mini-stat-val">3</div>
+                <div class="app-mini-stat-label">Resets</div>
+              </div>
+              <div class="app-mini-stat">
+                <div class="app-mini-stat-val">47%</div>
+                <div class="app-mini-stat-label">Goal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /page-content -->
+  </main>
+
+  <!-- Shared JS -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+/* ═══════════════════════════════════════════════════════════════
+   NoFapTracker — Shared JavaScript
+   script.js · Used by index.html + changelog.html
+═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────
+   CUSTOM CURSOR SYSTEM
+───────────────────────────────────────────── */
+const dot  = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+let mouseX = 0, mouseY = 0;
+let ringX  = 0, ringY  = 0;
+let cursorEnabled = true;
+
+/* Create trail dots */
+const TRAIL_COUNT = 8;
+const trails = [];
+for (let i = 0; i < TRAIL_COUNT; i++) {
+  const el = document.createElement('div');
+  el.classList.add('cursor-trail');
+  document.body.appendChild(el);
+  trails.push({ el, x: 0, y: 0 });
+}
+
+/* Track mouse position */
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  dot.style.left = mouseX + 'px';
+  dot.style.top  = mouseY + 'px';
+});
+
+/* Smooth ring lag + trail loop */
+let prevPositions = Array(TRAIL_COUNT).fill({ x: 0, y: 0 });
+function animateCursor() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  ring.style.left = ringX + 'px';
+  ring.style.top  = ringY + 'px';
+
+  prevPositions.unshift({ x: mouseX, y: mouseY });
+  prevPositions = prevPositions.slice(0, TRAIL_COUNT + 1);
+
+  trails.forEach((t, i) => {
+    const pos = prevPositions[Math.min(i * 2 + 2, prevPositions.length - 1)];
+    t.el.style.left      = pos.x + 'px';
+    t.el.style.top       = pos.y + 'px';
+    const ratio          = 1 - i / TRAIL_COUNT;
+    t.el.style.opacity   = (ratio * 0.35).toString();
+    t.el.style.width     = (6 * ratio) + 'px';
+    t.el.style.height    = (6 * ratio) + 'px';
+    t.el.style.transform = 'translate(-50%,-50%)';
+  });
+
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+/* Hover state */
+const hoverTargets = 'a, button, [role="button"], .feature-card, .version-card, .stat-item, .install-step';
+document.addEventListener('mouseover', (e) => {
+  if (e.target.closest(hoverTargets)) document.body.classList.add('cursor-hover');
+});
+document.addEventListener('mouseout', (e) => {
+  if (e.target.closest(hoverTargets)) document.body.classList.remove('cursor-hover');
+});
+
+/* ─────────────────────────────────────────────
+   CURSOR TOGGLE
+───────────────────────────────────────────── */
+const toggleBtn = document.getElementById('cursor-toggle');
+toggleBtn.addEventListener('click', () => {
+  cursorEnabled = !cursorEnabled;
+  if (cursorEnabled) {
+    toggleBtn.classList.add('active');
+    document.body.classList.remove('cursor-off');
+  } else {
+    toggleBtn.classList.remove('active');
+    document.body.classList.add('cursor-off');
+    document.body.classList.remove('cursor-hover');
+  }
+});
+
+/* ─────────────────────────────────────────────
+   LIVE CLOCK
+───────────────────────────────────────────── */
+const DAYS   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function updateClock() {
+  const now = new Date();
+  const h   = pad(now.getHours());
+  const m   = pad(now.getMinutes());
+  const s   = pad(now.getSeconds());
+  const d   = now.getDate();
+  const mo  = MONTHS[now.getMonth()];
+  const y   = now.getFullYear();
+  const day = DAYS[now.getDay()];
+  document.getElementById('clock-hm').textContent     = `${h}:${m}`;
+  document.getElementById('clock-seconds').textContent = `:${s}`;
+  document.getElementById('clock-date').textContent    = `${pad(d)} / ${mo} / ${y}`;
+  document.getElementById('clock-day').textContent     = day;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+/* ─────────────────────────────────────────────
+   ANIMATED STAT COUNTER (index only)
+───────────────────────────────────────────── */
+function animateCount(el, target, duration) {
+  if (!el) return;
+  let start = null;
+  const step = (ts) => {
+    if (!start) start = ts;
+    const progress = Math.min((ts - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(ease * target);
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+animateCount(document.getElementById('stat-days'), 42, 1800);
+
+/* ─────────────────────────────────────────────
+   MOCKUP STREAK PULSE (index only)
+───────────────────────────────────────────── */
+setInterval(() => {
+  const el = document.getElementById('mockup-num');
+  if (el) {
+    el.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+      el.style.transition = 'transform 0.3s ease';
+      el.style.transform  = 'scale(1)';
+    }, 150);
+  }
+}, 4000);
+
+/* ─────────────────────────────────────────────
+   MOBILE HAMBURGER
+───────────────────────────────────────────── */
+const hamburger = document.getElementById('hamburger');
+const sidebar   = document.getElementById('sidebar');
+hamburger.addEventListener('click', () => sidebar.classList.toggle('open'));
+document.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && e.target !== hamburger) {
+    sidebar.classList.remove('open');
+  }
+});
+
+/* ─────────────────────────────────────────────
+   SCROLL-TRIGGERED ANIMATIONS
+───────────────────────────────────────────── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity   = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.feature-card, .timeline-entry, .install-step').forEach(el => {
+  el.style.opacity    = '0';
+  el.style.transform  = 'translateY(24px)';
+  el.style.transition = 'opacity 0.55s cubic-bezier(0.4,0,0.2,1), transform 0.55s cubic-bezier(0.4,0,0.2,1)';
+  observer.observe(el);
+});
+
+/* ─────────────────────────────────────────────
+   BUTTON RIPPLE EFFECT
+───────────────────────────────────────────── */
+/* Inject keyframe */
+const styleEl = document.createElement('style');
+styleEl.textContent = `@keyframes rippleAnim { to { transform:scale(2.5); opacity:0; } }`;
+document.head.appendChild(styleEl);
+
+function addRipple(e) {
+  const btn    = e.currentTarget;
+  const ripple = document.createElement('span');
+  const rect   = btn.getBoundingClientRect();
+  const size   = Math.max(rect.width, rect.height);
+  ripple.style.cssText = `
+    position:absolute;
+    width:${size}px; height:${size}px;
+    left:${e.clientX - rect.left - size / 2}px;
+    top:${e.clientY - rect.top - size / 2}px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.15);
+    transform:scale(0);
+    animation:rippleAnim 0.6s ease-out forwards;
+    pointer-events:none;
+  `;
+  btn.style.position = 'relative';
+  btn.style.overflow = 'hidden';
+  btn.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 700);
+}
+
+document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+  btn.addEventListener('click', addRipple);
+});
+
+/* ═══════════════════════════════════════════════════════════════
+   NoFapTracker — Shared Stylesheet
+   style.css · Used by index.html + changelog.html
+═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+───────────────────────────────────────────── */
+:root {
+  --bg:          #08080e;
+  --bg2:         #0f0f18;
+  --surface:     #13131f;
+  --surface2:    #1a1a2a;
+  --glass:       rgba(255,255,255,0.04);
+  --glass-b:     rgba(255,255,255,0.08);
+  --border:      rgba(255,255,255,0.07);
+  --border-h:    rgba(255,255,255,0.15);
+  --accent:      #7c6dfa;
+  --accent2:     #a78bfa;
+  --accent-glow: rgba(124,109,250,0.35);
+  --teal:        #38bdf8;
+  --teal-glow:   rgba(56,189,248,0.25);
+  --text:        #e2e2f0;
+  --text-muted:  #6b6b8a;
+  --text-dim:    #3a3a55;
+  --sidebar-w:   240px;
+  --nav-h:       64px;
+  --radius:      14px;
+  --radius-sm:   8px;
+  --transition:  0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ─────────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'DM Sans', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:var(--bg); }
+::-webkit-scrollbar-thumb { background:var(--surface2); border-radius:99px; }
+::-webkit-scrollbar-thumb:hover { background:var(--accent); }
+
+a { color:inherit; text-decoration:none; }
+button { font-family:inherit; cursor:none; }
+
+/* ─────────────────────────────────────────────
+   CUSTOM CURSOR
+───────────────────────────────────────────── */
+#cursor-dot {
+  position:fixed;
+  width:10px; height:10px;
+  background:var(--accent);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width 0.2s, height 0.2s, background 0.2s, box-shadow 0.2s;
+  box-shadow:0 0 12px var(--accent-glow);
+  will-change:transform;
+}
+#cursor-ring {
+  position:fixed;
+  width:38px; height:38px;
+  border:1.5px solid rgba(124,109,250,0.5);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:width 0.35s ease, height 0.35s ease, border-color 0.35s ease, transform 0.08s linear;
+  will-change:transform;
+}
+.cursor-trail {
+  position:fixed;
+  width:6px; height:6px;
+  background:var(--accent);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9996;
+  transform:translate(-50%,-50%);
+  opacity:0;
+  transition:opacity 0.4s;
+}
+
+body.cursor-hover #cursor-dot {
+  width:16px; height:16px;
+  background:var(--accent2);
+  box-shadow:0 0 24px var(--accent-glow);
+}
+body.cursor-hover #cursor-ring {
+  width:56px; height:56px;
+  border-color:rgba(167,139,250,0.6);
+}
+body.cursor-off { cursor:auto; }
+body.cursor-off #cursor-dot,
+body.cursor-off #cursor-ring,
+body.cursor-off .cursor-trail { display:none; }
+
+/* ─────────────────────────────────────────────
+   NOISE TEXTURE OVERLAY
+───────────────────────────────────────────── */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:1;
+  opacity:0.4;
+}
+
+/* ─────────────────────────────────────────────
+   AMBIENT BACKGROUND ORBS
+───────────────────────────────────────────── */
+.orb {
+  position:fixed;
+  border-radius:50%;
+  filter:blur(100px);
+  pointer-events:none;
+  z-index:0;
+  animation:float 12s ease-in-out infinite;
+}
+.orb-1 {
+  width:500px; height:500px;
+  background:radial-gradient(circle, rgba(124,109,250,0.12), transparent 70%);
+  top:-100px; left:30%;
+  animation-delay:0s;
+}
+.orb-2 {
+  width:400px; height:400px;
+  background:radial-gradient(circle, rgba(56,189,248,0.08), transparent 70%);
+  bottom:10%; right:10%;
+  animation-delay:-5s;
+}
+.orb-3 {
+  width:300px; height:300px;
+  background:radial-gradient(circle, rgba(167,139,250,0.07), transparent 70%);
+  top:40%; left:50%;
+  animation-delay:-9s;
+}
+@keyframes float {
+  0%,100% { transform:translateY(0) scale(1); }
+  50%      { transform:translateY(-30px) scale(1.05); }
+}
+
+/* ─────────────────────────────────────────────
+   LEFT SIDEBAR
+───────────────────────────────────────────── */
+#sidebar {
+  position:fixed;
+  left:0; top:0; bottom:0;
+  width:var(--sidebar-w);
+  background:rgba(13,13,22,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-right:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  padding:24px 16px;
+  z-index:100;
+  gap:16px;
+}
+
+.sidebar-brand {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:4px;
+}
+.sidebar-brand-icon {
+  width:36px; height:36px;
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  border-radius:10px;
+  display:grid; place-items:center;
+  font-size:18px;
+  box-shadow:0 0 20px var(--accent-glow);
+  flex-shrink:0;
+}
+.sidebar-brand-name {
+  font-family:'Syne', sans-serif;
+  font-weight:700; font-size:13px;
+  letter-spacing:0.02em;
+  color:var(--text);
+}
+.sidebar-brand-tag { font-size:10px; color:var(--text-muted); font-weight:300; }
+
+/* Clock widget */
+.clock-widget {
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px;
+  position:relative;
+  overflow:hidden;
+}
+.clock-widget::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:2px;
+  background:linear-gradient(90deg, var(--accent), var(--accent2), var(--teal));
+  border-radius:2px 2px 0 0;
+}
+#clock-time {
+  font-family:'JetBrains Mono', monospace;
+  font-size:28px; font-weight:600;
+  color:var(--text);
+  letter-spacing:0.04em;
+  line-height:1;
+}
+#clock-seconds { color:var(--accent); }
+#clock-date {
+  font-size:11px; color:var(--text-muted);
+  margin-top:6px;
+  font-family:'DM Sans', sans-serif;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+#clock-day {
+  font-family:'Syne', sans-serif;
+  font-weight:600; font-size:13px;
+  color:var(--accent2);
+  margin-top:2px;
+}
+
+/* Cursor toggle */
+.cursor-toggle-wrap { display:flex; flex-direction:column; gap:6px; }
+.cursor-toggle-label {
+  font-size:10px; color:var(--text-muted);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+#cursor-toggle {
+  display:flex; align-items:center; gap:10px;
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  padding:10px 14px;
+  color:var(--text);
+  font-size:12px; font-weight:500;
+  transition:var(--transition);
+  width:100%;
+}
+#cursor-toggle:hover { border-color:var(--border-h); background:var(--glass-b); }
+.toggle-pill {
+  width:32px; height:18px;
+  background:var(--surface2);
+  border-radius:99px;
+  position:relative;
+  transition:background 0.3s;
+  flex-shrink:0;
+  margin-left:auto;
+}
+.toggle-pill::after {
+  content:'';
+  position:absolute;
+  width:12px; height:12px;
+  background:white;
+  border-radius:50%;
+  top:3px; left:3px;
+  transition:transform 0.3s, background 0.3s;
+}
+#cursor-toggle.active .toggle-pill { background:var(--accent); }
+#cursor-toggle.active .toggle-pill::after { transform:translateX(14px); }
+
+/* Sidebar footer */
+.sidebar-footer {
+  margin-top:auto;
+  padding-top:16px;
+  border-top:1px solid var(--border);
+}
+.sidebar-footer-made {
+  font-size:10px; color:var(--text-dim);
+  text-transform:uppercase; letter-spacing:0.1em;
+  margin-bottom:4px;
+}
+.sidebar-footer-maker {
+  font-family:'Syne', sans-serif;
+  font-size:12px; font-weight:600;
+  color:var(--text-muted);
+}
+.sidebar-footer-app {
+  font-family:'Syne', sans-serif;
+  font-size:14px; font-weight:800;
+  color:var(--text);
+  margin-top:6px;
+  background:linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.sidebar-footer-version {
+  display:inline-block;
+  font-family:'JetBrains Mono', monospace;
+  font-size:10px;
+  background:var(--surface2);
+  color:var(--accent2);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:2px 7px;
+  margin-top:6px;
+  letter-spacing:0.05em;
+}
+
+/* ─────────────────────────────────────────────
+   TOP NAVIGATION
+───────────────────────────────────────────── */
+#topnav {
+  position:fixed;
+  top:0;
+  left:var(--sidebar-w); right:0;
+  height:var(--nav-h);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(8,8,14,0.7);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  z-index:99;
+}
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.nav-link {
+  font-family:'DM Sans', sans-serif;
+  font-size:13.5px; font-weight:500;
+  color:var(--text-muted);
+  padding:8px 18px;
+  border-radius:99px;
+  border:1px solid transparent;
+  transition:var(--transition);
+  position:relative;
+  letter-spacing:0.01em;
+}
+.nav-link:hover {
+  color:var(--text);
+  border-color:var(--border);
+  background:var(--glass);
+}
+.nav-link.active {
+  background:rgba(124,109,250,0.1);
+  border-color:rgba(124,109,250,0.25);
+  color:var(--accent2);
+}
+.nav-link.donate-link {
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  color:white;
+  border-color:transparent;
+  box-shadow:0 0 20px var(--accent-glow);
+}
+.nav-link.donate-link:hover {
+  transform:translateY(-1px);
+  box-shadow:0 0 30px var(--accent-glow);
+}
+.nav-link.github-link {
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--glass);
+  color:var(--text);
+  border:1px solid var(--border-h);
+  transition:var(--transition);
+}
+.nav-link.github-link:hover {
+  background:var(--glass-b);
+  border-color:rgba(255,255,255,0.22);
+  transform:translateY(-1px);
+  color:#fff;
+}
+.nav-link.github-link svg { flex-shrink:0; opacity:0.85; transition:opacity 0.25s; }
+.nav-link.github-link:hover svg { opacity:1; }
+.nav-divider {
+  width:1px; height:20px;
+  background:var(--border);
+  margin:0 4px;
+  flex-shrink:0;
+}
+
+/* ─────────────────────────────────────────────
+   MAIN CONTENT AREA
+───────────────────────────────────────────── */
+#main {
+  margin-left:var(--sidebar-w);
+  padding-top:var(--nav-h);
+  min-height:100vh;
+  position:relative;
+  z-index:2;
+}
+
+/* Page fade-in on load */
+.page-content {
+  animation:pageFadeIn 0.45s cubic-bezier(0.4,0,0.2,1) both;
+}
+@keyframes pageFadeIn {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ─────────────────────────────────────────────
+   HOME PAGE — HERO
+───────────────────────────────────────────── */
+#page-home {
+  padding:80px 60px 80px;
+  min-height:calc(100vh - var(--nav-h));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.hero {
+  text-align:center;
+  max-width:760px;
+  width:100%;
+  padding:100px 0 60px;
+}
+
+.hero-badge {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(124,109,250,0.08);
+  border:1px solid rgba(124,109,250,0.2);
+  border-radius:99px;
+  padding:6px 16px;
+  font-size:12px; font-weight:500;
+  color:var(--accent2);
+  letter-spacing:0.06em; text-transform:uppercase;
+  margin-bottom:32px;
+  animation:slideDown 0.6s cubic-bezier(0.4,0,0.2,1) both;
+}
+.hero-badge-dot {
+  width:6px; height:6px;
+  background:var(--accent);
+  border-radius:50%;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.5; transform:scale(1.4); }
+}
+
+.hero-title {
+  font-family:'Syne', sans-serif;
+  font-weight:800;
+  font-size:clamp(52px,8vw,96px);
+  line-height:0.95; letter-spacing:-0.03em;
+  color:var(--text);
+  animation:slideDown 0.7s 0.1s cubic-bezier(0.4,0,0.2,1) both;
+}
+.hero-title-gradient {
+  background:linear-gradient(135deg, #fff 30%, var(--accent2) 70%, var(--teal));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-sub {
+  font-size:clamp(15px,2vw,19px);
+  color:var(--text-muted);
+  margin-top:20px; font-weight:300; line-height:1.6;
+  animation:slideDown 0.7s 0.2s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+.hero-actions {
+  display:flex; gap:14px; justify-content:center;
+  margin-top:40px;
+  animation:slideDown 0.7s 0.3s cubic-bezier(0.4,0,0.2,1) both;
+  flex-wrap:wrap;
+}
+
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  color:white;
+  padding:14px 32px;
+  border-radius:99px;
+  font-size:15px; font-weight:600;
+  border:none;
+  box-shadow:0 0 30px var(--accent-glow), 0 4px 20px rgba(0,0,0,0.4);
+  transition:var(--transition);
+  letter-spacing:0.01em;
+  cursor:none;
+}
+.btn-primary:hover {
+  transform:translateY(-2px);
+  box-shadow:0 0 50px var(--accent-glow), 0 8px 30px rgba(0,0,0,0.5);
+}
+.btn-secondary {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--glass); color:var(--text);
+  padding:14px 32px;
+  border-radius:99px;
+  font-size:15px; font-weight:500;
+  border:1px solid var(--border-h);
+  transition:var(--transition);
+}
+.btn-secondary:hover { background:var(--glass-b); transform:translateY(-2px); }
+
+@keyframes slideDown {
+  from { opacity:0; transform:translateY(-20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* Stats bar */
+.stats-bar {
+  display:flex; gap:1px;
+  margin-top:72px;
+  width:100%; max-width:680px;
+  background:var(--border);
+  border-radius:var(--radius); overflow:hidden;
+  animation:fadeUp 0.7s 0.5s cubic-bezier(0.4,0,0.2,1) both;
+}
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.stat-item {
+  flex:1; background:var(--surface);
+  padding:20px; text-align:center;
+  transition:background 0.3s;
+}
+.stat-item:hover { background:var(--surface2); }
+.stat-num {
+  font-family:'Syne', sans-serif;
+  font-size:26px; font-weight:800;
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat-label {
+  font-size:11px; color:var(--text-muted);
+  margin-top:4px; text-transform:uppercase; letter-spacing:0.08em;
+}
+
+/* Features grid */
+.section-label {
+  font-size:11px; color:var(--accent2);
+  text-transform:uppercase; letter-spacing:0.15em;
+  font-weight:600; text-align:center;
+  margin-top:100px; margin-bottom:16px;
+}
+.section-title {
+  font-family:'Syne', sans-serif;
+  font-weight:800;
+  font-size:clamp(28px,4vw,42px);
+  text-align:center; letter-spacing:-0.02em;
+  margin-bottom:48px;
+}
+.features-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:16px; width:100%; max-width:900px;
+}
+.feature-card {
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:28px 24px;
+  transition:var(--transition);
+  position:relative; overflow:hidden;
+}
+.feature-card::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, var(--accent-glow), transparent 60%);
+  opacity:0; transition:opacity 0.4s;
+}
+.feature-card:hover::before { opacity:1; }
+.feature-card:hover {
+  border-color:var(--border-h);
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+.feature-icon { font-size:28px; margin-bottom:14px; display:block; }
+.feature-title {
+  font-family:'Syne', sans-serif;
+  font-weight:700; font-size:16px;
+  margin-bottom:8px; color:var(--text);
+}
+.feature-desc { font-size:13.5px; color:var(--text-muted); line-height:1.65; }
+
+/* App Mockup */
+.mockup-wrap {
+  margin-top:80px; width:100%; max-width:760px;
+  position:relative;
+}
+.mockup-glow {
+  position:absolute;
+  width:80%; height:60%;
+  left:10%; top:20%;
+  background:radial-gradient(ellipse, var(--accent-glow), transparent 70%);
+  filter:blur(40px);
+  pointer-events:none;
+}
+.mockup-window {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px; overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+  position:relative; z-index:1;
+}
+.mockup-topbar {
+  background:var(--surface2);
+  padding:14px 18px;
+  display:flex; align-items:center; gap:8px;
+  border-bottom:1px solid var(--border);
+}
+.mockup-dot { width:12px; height:12px; border-radius:50%; }
+.mockup-dot:nth-child(1) { background:#ff5f57; }
+.mockup-dot:nth-child(2) { background:#febc2e; }
+.mockup-dot:nth-child(3) { background:#28c840; }
+.mockup-title {
+  flex:1; text-align:center;
+  font-size:12px; color:var(--text-muted);
+  font-family:'JetBrains Mono', monospace;
+}
+.mockup-body { padding:32px 28px; }
+.app-streak {
+  text-align:center; padding:24px;
+  background:rgba(124,109,250,0.06);
+  border:1px solid rgba(124,109,250,0.15);
+  border-radius:12px; margin-bottom:20px;
+}
+.app-streak-label {
+  font-size:11px; text-transform:uppercase;
+  letter-spacing:0.12em; color:var(--text-muted);
+}
+.app-streak-num {
+  font-family:'Syne', sans-serif;
+  font-size:72px; font-weight:800; line-height:1.1;
+  background:linear-gradient(135deg, #fff, var(--accent2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:countUp 2s ease-out both;
+}
+@keyframes countUp {
+  from { opacity:0; transform:scale(0.8); }
+  to   { opacity:1; transform:scale(1); }
+}
+.app-streak-unit { font-size:13px; color:var(--text-muted); margin-top:2px; }
+.app-progress-row { display:flex; gap:4px; margin-bottom:16px; }
+.app-progress-bar {
+  height:6px; border-radius:99px; flex:1;
+  background:var(--surface2); overflow:hidden;
+}
+.app-progress-fill {
+  height:100%; border-radius:99px;
+  background:linear-gradient(90deg, var(--accent), var(--accent2));
+  animation:fillAnim 1.5s 0.5s ease-out both;
+  transform-origin:left;
+}
+@keyframes fillAnim {
+  from { transform:scaleX(0); }
+  to   { transform:scaleX(1); }
+}
+.app-mini-stats { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+.app-mini-stat {
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:8px; padding:12px; text-align:center;
+}
+.app-mini-stat-val {
+  font-family:'Syne', sans-serif;
+  font-weight:700; font-size:18px; color:var(--accent2);
+}
+.app-mini-stat-label {
+  font-size:10px; color:var(--text-muted);
+  text-transform:uppercase; letter-spacing:0.06em; margin-top:3px;
+}
+
+/* ─────────────────────────────────────────────
+   CHANGELOG PAGE
+───────────────────────────────────────────── */
+#page-changelog {
+  padding:60px 60px 100px;
+  max-width:860px;
+  margin:0 auto;
+}
+.changelog-header { margin-bottom:56px; }
+.changelog-header h1 {
+  font-family:'Syne', sans-serif;
+  font-weight:800; font-size:42px;
+  letter-spacing:-0.02em; margin-top:12px;
+}
+.changelog-header p {
+  font-size:15px; color:var(--text-muted);
+  margin-top:10px; line-height:1.6;
+}
+
+/* Timeline spine */
+.timeline { position:relative; padding-left:36px; }
+.timeline::before {
+  content:'';
+  position:absolute;
+  left:9px; top:0; bottom:0; width:2px;
+  background:linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+}
+.timeline-entry { position:relative; margin-bottom:44px; }
+.timeline-entry::before {
+  content:'';
+  position:absolute;
+  left:-30px; top:22px;
+  width:16px; height:16px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 18px var(--accent-glow);
+  border:3px solid var(--bg);
+}
+
+/* Version card */
+.version-card {
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden; transition:var(--transition);
+}
+.version-card:hover {
+  border-color:var(--border-h);
+  transform:translateX(5px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.3);
+}
+.version-card-head {
+  display:flex; align-items:flex-start;
+  justify-content:space-between; flex-wrap:wrap; gap:12px;
+  padding:22px 26px 18px;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(135deg, rgba(124,109,250,0.06), rgba(167,139,250,0.03));
+  position:relative; overflow:hidden;
+}
+.version-card-head::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--accent), var(--accent2), var(--teal), transparent);
+}
+.version-tag {
+  font-family:'JetBrains Mono', monospace; font-size:11px;
+  background:rgba(124,109,250,0.15); color:var(--accent2);
+  border:1px solid rgba(124,109,250,0.28);
+  border-radius:6px; padding:3px 11px; letter-spacing:0.06em;
+}
+.version-tag.latest {
+  background:rgba(56,189,248,0.12); color:var(--teal);
+  border-color:rgba(56,189,248,0.3);
+}
+.version-tag.alpha {
+  background:rgba(251,191,36,0.1); color:#fbbf24;
+  border-color:rgba(251,191,36,0.25);
+}
+.version-meta { display:flex; gap:7px; align-items:center; flex-wrap:wrap; }
+.version-title {
+  font-family:'Syne', sans-serif;
+  font-weight:800; font-size:20px; color:var(--text);
+  margin-top:10px; letter-spacing:-0.01em;
+}
+.version-subtitle { font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.5; }
+.version-date {
+  font-size:11px; color:var(--text-muted);
+  font-family:'JetBrains Mono', monospace;
+  align-self:flex-start; padding-top:4px; white-space:nowrap;
+}
+.version-card-body { padding:24px 26px 26px; display:flex; flex-direction:column; gap:24px; }
+
+.cl-desc {
+  font-size:14.5px; color:var(--text-muted); line-height:1.75;
+  padding:16px 20px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:10px; border-left:3px solid var(--accent);
+}
+.cl-section-title {
+  display:flex; align-items:center; gap:9px;
+  font-family:'Syne', sans-serif; font-weight:700; font-size:13px;
+  text-transform:uppercase; letter-spacing:0.1em;
+  color:var(--text-muted); margin-bottom:12px;
+}
+.cl-section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+.cl-section-icon { font-size:14px; }
+.cl-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
+.cl-list li {
+  display:flex; align-items:flex-start;
+  gap:11px; font-size:14px; line-height:1.6; color:var(--text-muted);
+}
+.cl-bullet {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:20px; height:20px; border-radius:6px;
+  font-size:11px; flex-shrink:0; margin-top:1px;
+}
+.cl-bullet.feat { background:rgba(74,222,128,0.12); color:#4ade80; border:1px solid rgba(74,222,128,0.2); }
+.cl-bullet.warn { background:rgba(251,191,36,0.12);  color:#fbbf24; border:1px solid rgba(251,191,36,0.2); }
+.cl-bullet.road { background:rgba(167,139,250,0.12); color:var(--accent2); border:1px solid rgba(167,139,250,0.2); }
+.cl-bullet.step { background:rgba(56,189,248,0.12);  color:var(--teal);    border:1px solid rgba(56,189,248,0.2); }
+.cl-bullet.note { background:rgba(248,113,113,0.12); color:#f87171; border:1px solid rgba(248,113,113,0.2); }
+
+.install-steps { display:flex; flex-direction:column; gap:10px; }
+.install-step {
+  display:flex; align-items:center; gap:14px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border); border-radius:10px;
+  padding:14px 18px; font-size:14px; color:var(--text-muted);
+  transition:border-color 0.25s, background 0.25s;
+}
+.install-step:hover { border-color:var(--border-h); background:rgba(255,255,255,0.04); }
+.install-step-num {
+  width:26px; height:26px; border-radius:8px;
+  background:linear-gradient(135deg, var(--accent), var(--accent2));
+  display:grid; place-items:center;
+  font-family:'JetBrains Mono', monospace;
+  font-size:12px; font-weight:600; color:white; flex-shrink:0;
+  box-shadow:0 0 12px var(--accent-glow);
+}
+.file-pill {
+  display:inline-block;
+  font-family:'JetBrains Mono', monospace; font-size:12px;
+  background:rgba(56,189,248,0.1); color:var(--teal);
+  border:1px solid rgba(56,189,248,0.25);
+  border-radius:5px; padding:1px 8px; margin:0 3px;
+}
+.state-banner {
+  display:flex; align-items:flex-start; gap:12px;
+  background:rgba(251,191,36,0.06);
+  border:1px solid rgba(251,191,36,0.18);
+  border-radius:10px; padding:14px 18px;
+}
+.state-banner-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+.state-banner-text { font-size:13.5px; color:var(--text-muted); line-height:1.65; }
+.state-banner-text strong { color:#fbbf24; font-weight:600; }
+.cl-made-by {
+  display:flex; align-items:center; justify-content:center;
+  gap:8px; padding:14px 0 0;
+  border-top:1px solid var(--border);
+  font-size:13px; color:var(--text-muted);
+}
+.cl-made-by strong { color:var(--text); }
+.cl-made-by a { color:var(--accent2); font-weight:500; transition:color 0.2s; }
+.cl-made-by a:hover { color:#fff; }
+.timeline-entry.future { opacity:0.42; }
+.timeline-entry.future .version-card { border-style:dashed; }
+
+/* ─────────────────────────────────────────────
+   MOBILE HAMBURGER
+───────────────────────────────────────────── */
+.hamburger {
+  display:none;
+  position:fixed; top:14px; right:16px;
+  z-index:200;
+  background:var(--glass); border:1px solid var(--border);
+  border-radius:8px;
+  width:40px; height:40px;
+  align-items:center; justify-content:center;
+  flex-direction:column; gap:5px; padding:10px;
+  cursor:none;
+}
+.hamburger span {
+  display:block; width:18px; height:2px;
+  background:var(--text); border-radius:2px; transition:0.3s;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width:768px) {
+  :root { --sidebar-w:0px; }
+
+  #sidebar {
+    transform:translateX(-240px);
+    width:240px;
+    transition:transform 0.35s ease;
+    z-index:200;
+  }
+  #sidebar.open { transform:translateX(0); }
+  #topnav { left:0; }
+  .hamburger { display:flex; }
+  #main { margin-left:0; }
+
+  #page-home { padding:40px 24px 60px; }
+  .hero { padding:60px 0 40px; }
+  #page-changelog { padding:40px 24px 80px; }
+  .features-grid { grid-template-columns:1fr; }
+  .stats-bar { flex-direction:column; gap:1px; }
+}
